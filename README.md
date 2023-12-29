@@ -26,12 +26,6 @@ other code/Dependencies อยู่ใน node_modules
 วาง layout ของหน้าหลัก (ในที่นี้เรามี 1 หน้า)
 ในไฟล์ App.js วาง markup สำหรับทำ layout
 
-   <div className='todo'>
-        <div className="todo__header">Header</div>
-        <div className="todo__sidebar">SideBar</div>
-        <div classNAme="todo_content">TodoContent</div>
-    </div>
-
 # สร้างไฟล์ App.scss
 
 ไฟล์ App.scss : เขียน css สำหรับจัด layout
@@ -78,3 +72,16 @@ import styles from 'App.module.scss';
     <div className={styles.todo__sidebar}>SideBar</div>
     <div classNAme={styles.todo__content}>TodoContent</div>
 </div>;
+
+# 5.1.2 : Search
+
+สร้างไฟล์ Search.jsx
+สร้างไฟล์ Search.module.scss
+
+import { FaSearch } from 'react-icons/fa';
+
+  <header className="header">
+          <div className="header__logo"></div>
+          <div className="header__text"></div>
+          <div className="header__search"></div>
+        </header>
