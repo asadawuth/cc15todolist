@@ -1,6 +1,4 @@
-@import "../index.scss";
-$header-height: 60px;
-$sidebar-width: 300px;
+@import '../styles/global.scss';
 
 .todo {
   display: grid;
@@ -17,34 +15,12 @@ $sidebar-width: 300px;
   &__content {
     grid-row: 2/-1;
     grid-column: 2/-1;
-    padding: 8px;
   }
 }
-
-.todo__sidebar {
-  display: flex;
-  flex-direction: column;
-  padding: 8px;
-}
-// @media screen and (max-width: 768px) {
-//   .todo {
-//     &__sidebar {
-//       display: none;
-//     }
-
-//     &__content {
-//       grid-row: 2/-1;
-//       grid-column: 1/-1;
-//     }
-//   }
-// }
 
 .todo__container {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  padding: 4px;
+  gap: 5px;
+  padding: 30px;
 }
-
-///////////
-/// import '../styles/global.scss';
