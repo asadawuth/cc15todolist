@@ -1,0 +1,35 @@
+.flex {
+  display: flex;
+  gap: 16px;
+  padding: 12px;
+  padding-left: 24px;
+  transition: background 0.3s; /* Add transition for a smooth effect */
+}
+
+/* Add hover effect */
+.flex:hover {
+  background: lightgray;
+}
+
+/* Apply bold font on hover */
+.flex:hover .font {
+  font-weight: bold;
+}
+
+.flex2 {
+  display: flex;
+  gap: 16px;
+  padding-left: 32px;
+}
+
+.logodown {
+  padding-top: 8px;
+}
+
+.logo {
+  font-size: 24px;
+}
+
+.font {
+  font-weight: normal; /* Set the default font weight */
+}

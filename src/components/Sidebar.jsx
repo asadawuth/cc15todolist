@@ -1,12 +1,13 @@
-import "./App.scss";
+import "../app/App.scss";
+import "./Sidebar.scss";
 import { React } from "react";
 import { FaCar, FaChevronDown } from "react-icons/fa";
 import { MdOutlineDateRange } from "react-icons/md";
 import { FaCalendarDays } from "react-icons/fa6";
 
-function SideBar() {
+function Sidebar() {
   return (
-    <div className="todo__sidebar">
+    <>
       <div className="flex">
         <div className="logo">
           <FaCar />
@@ -45,8 +46,8 @@ function SideBar() {
           <h2 className="font">Home</h2>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
-export default SideBar;
+export default Sidebar;

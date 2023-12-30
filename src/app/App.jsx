@@ -1,5 +1,6 @@
 import "./App.scss";
 import Header from "../components/Header";
+import Sidebar from "../components/Sidebar";
 
 function App() {
   return (
@@ -7,7 +8,9 @@ function App() {
       <div className="todo__header">
         <Header />
       </div>
-      <div className="todo__sidebar">SideBar</div>
+      <div className="todo__sidebar">
+        <Sidebar />
+      </div>
       <div className="todo__content">TodoContent</div>
     </div>
   );

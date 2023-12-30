@@ -20,6 +20,10 @@ $sidebar-width: 300px;
   }
 }
 
+.todo__sidebar {
+  display: flex;
+  flex-direction: column;
+}
 // @media screen and (max-width: 768px) {
 //   .todo {
 //     &__sidebar {
