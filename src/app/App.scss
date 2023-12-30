@@ -23,6 +23,7 @@ $sidebar-width: 300px;
 .todo__sidebar {
   display: flex;
   flex-direction: column;
+  padding: 8px;
 }
 // @media screen and (max-width: 768px) {
 //   .todo {

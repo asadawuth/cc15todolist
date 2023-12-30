@@ -1,11 +1,13 @@
 import "../app/App.scss";
 import "./Sidebar.scss";
-import { React } from "react";
+import { React, useState } from "react";
 import { FaCar, FaChevronDown } from "react-icons/fa";
 import { MdOutlineDateRange } from "react-icons/md";
 import { FaCalendarDays } from "react-icons/fa6";
 
 function Sidebar() {
+  const [list, setListist] = useState(true);
+  const handle = () => setListist(!list);
   return (
     <>
       <div className="flex">
@@ -28,23 +30,28 @@ function Sidebar() {
       </div>
       <div>
         <div className="flex2">
-          <div className="logodown">
+          <div onClick={handle} className={list ? "logodown" : "logodown1"}>
             <FaChevronDown />
           </div>
           <h1>Project</h1>
         </div>
-        <div className="flex">
-          <div className="logo">
-            <FaCar />
-          </div>
-          <h2 className="font">Work</h2>
-        </div>
-        <div className="flex">
-          <div className="logo">
-            <FaCar />
-          </div>
-          <h2 className="font">Home</h2>
-        </div>
+
+        {list && (
+          <>
+            <div className="flex">
+              <div className="logo">
+                <FaCar />
+              </div>
+              <h2 className="font">Project-A</h2>
+            </div>
+            <div className="flex">
+              <div className="logo">
+                <FaCar />
+              </div>
+              <h2 className="font">Project-B</h2>
+            </div>
+          </>
+        )}
       </div>
     </>
   );

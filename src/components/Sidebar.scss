@@ -22,8 +22,21 @@
   padding-left: 32px;
 }
 
+// .logodown:hover {
+//   transform: translate(-90);
+// }
+
 .logodown {
   padding-top: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.logodown1 {
+  padding-top: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transform: rotate(-90deg);
 }
 
 .logo {
