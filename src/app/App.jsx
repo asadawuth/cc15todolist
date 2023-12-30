@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
 import TodoHeader from "../components/Todo/TodoHeader";
 import TodoCreate from "../components/Todo/TodoCreate";
+import TodoList from "../components/Todo/TodoList";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <main className="todo__container">
           <TodoHeader />
           <TodoCreate />
+          <TodoList />
         </main>
       </div>
     </div>

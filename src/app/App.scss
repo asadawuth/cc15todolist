@@ -17,6 +17,7 @@ $sidebar-width: 300px;
   &__content {
     grid-row: 2/-1;
     grid-column: 2/-1;
+    padding: 8px;
   }
 }
 
@@ -38,12 +39,12 @@ $sidebar-width: 300px;
 //   }
 // }
 
-// .todo__container {
-//   display: flex;
-//   flex-direction: column;
-//   gap: 5px;
-//   padding: 30px;
-// }
+.todo__container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 4px;
+}
 
 ///////////
 /// import '../styles/global.scss';
