@@ -23,15 +23,15 @@ a current State fn สำหรับ SetState
 */
 // Js เพียวๆ if else Render React ไม่ได้ ต้องใช้ state state เปลี่ยน fn component จะ เปลี่ยน
 function TodoCreate() {
-  const [isOpenForm, setisOpenForm] = useState(false);
+  const [isOpenForm, setIsOpenForm] = useState(false);
   const handleClick = (event) => {
-    setisOpenForm(!isOpenForm);
+    setIsOpenForm(!isOpenForm);
   };
 
   return (
     <>
       {isOpenForm ? (
-        <TodoForm textSubmit="Add Task" />
+        <TodoForm textSubmit="Add Task" setIsOpenForm={setIsOpenForm} />
       ) : (
         <div className={styles.todo__create} onClick={handleClick}>
           <div className={styles.todo__create__button}>
