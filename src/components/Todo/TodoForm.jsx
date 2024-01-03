@@ -10,17 +10,24 @@ import { useState } from "react";
 */
 
 function TodoForm(props) {
-  const [isError, setisError] = useState(true);
+  const [isError, setisError] = useState(false);
   const [task, setTask] = useState("");
   const handleChangeInput = (event) => {
+    if (isError) setisError(false);
     setTask(event.target.value);
   };
   const handleSubmit = function (event) {
     event.preventDefault();
     // 1 sub ได้ 2 ไม่ได้  // FormValidation
+    // 2 รู้ก่อนว่า user พิมอะไร (อยู่ใน state : taskInput)
+    if (task.trim() === "") {
+      setisError(true);
+      return;
+    }
   };
   const handleCancel = () => {
     //setIsOpenForm(false)
+    //correctName : setIsOpenForm(false)
     props.setIsOpenForm(false);
   };
   return (
@@ -28,13 +35,15 @@ function TodoForm(props) {
       {/*	Body */}
       <input
         className={styles.todo__form__input}
-        placeholder="Task Name"
+        placeholder=""
         onChange={handleChangeInput}
         value={task}
       />
       {/*Form Footer */}
       <div className={styles.todo__form__footer}>
-        {isError ? <p className={styles.todo__error}>Title is read</p> : null}
+        {isError ? (
+          <p className={styles.todo__error}>Title is required</p>
+        ) : null}
         <div className={styles.todo__form__buttons}>
           <Button
             text="Cancel"

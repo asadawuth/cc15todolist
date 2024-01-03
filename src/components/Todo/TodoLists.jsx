@@ -5,14 +5,14 @@ import TodoForm from "./TodoForm";
 import { useState } from "react";
 
 function TodoLists() {
-  const [isOpenForm, setisOpenForm] = useState(false);
+  const [isOpenForm, setIsOpenForm] = useState(false);
   const handleClick = function () {
-    setisOpenForm(!isOpenForm);
+    setIsOpenForm(!isOpenForm);
   };
   return (
     <ul className={styles.todo__lists}>
       {isOpenForm ? (
-        <TodoForm textSubmit="Edit Task" />
+        <TodoForm textSubmit="Edit Task" setIsOpenForm={setIsOpenForm} />
       ) : (
         <li className={styles.todo}>
           <div
@@ -25,7 +25,7 @@ function TodoLists() {
           </p>
           <span className={styles.todo__date}>30 Aug</span>
           <div className={styles.todo__action}>
-            <span>
+            <span onClick={handleClick}>
               <FaPen className={styles.todo__edit} />
             </span>
             <span>
