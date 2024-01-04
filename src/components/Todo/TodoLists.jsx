@@ -4,10 +4,8 @@ import TodoItem from "./TodoItem";
 function TodoLists() {
   return (
     <ul className={styles.todo__lists}>
-      <TodoItem />
-      <TodoItem />
-      <TodoItem />
-      <TodoItem />
+      <TodoItem task="One" done={true} date="31 Aug" />
+      <TodoItem task="two" done={false} date="1 Sep" />
     </ul>
   );
 }

@@ -4,7 +4,9 @@ import { FaTrashAlt, FaPen } from "react-icons/fa";
 import { HiOutlineCheck } from "react-icons/hi";
 import TodoForm from "./TodoForm";
 
-function TodoItem() {
+//function TodoItem(props) {
+//  const { task, done, date } = props;
+function TodoItem({ task, done, date }) {
   const [isOpenForm, setIsOpenForm] = useState(false);
   const handleClick = function () {
     setIsOpenForm(!isOpenForm);
@@ -16,14 +18,18 @@ function TodoItem() {
       ) : (
         <li className={styles.todo}>
           <div
-            className={`${styles.todo__checkbox} ${styles.todo__checkbox__done}`}
+            className={`${styles.todo__checkbox} ${
+              done ? styles.todo__checkbox__done : ""
+            }`}
           >
             <HiOutlineCheck className={styles.todo__checkbox__icon} />
           </div>
-          <p className={`${styles.todo__task} ${styles.todo__done}`}>
-            todo-item 1{" "}
+          <p
+            className={`${styles.todo__task} ${done ? styles.todo__done : ""}`}
+          >
+            {task}{" "}
           </p>
-          <span className={styles.todo__date}>30 Aug</span>
+          <span className={styles.todo__date}>{date}</span>
           <div className={styles.todo__action}>
             <span onClick={handleClick}>
               <FaPen className={styles.todo__edit} />
