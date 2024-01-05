@@ -6,11 +6,18 @@ import TodoForm from "./TodoForm";
 
 //function TodoItem(props) {
 //  const { task, done, date } = props;
-function TodoItem({ task, done, date }) {
+function TodoItem({ id, task, done, date, deleteTodo, editTodo }) {
   const [isOpenForm, setIsOpenForm] = useState(false);
+  //console.log(id);
   const handleClick = function () {
     setIsOpenForm(!isOpenForm);
   };
+
+  const toggleStatus = () => {
+    const newTodoObj = { id, task, date, status: !done };
+    editTodo(id, newTodoObj);
+  };
+
   return (
     <>
       {isOpenForm ? (
@@ -22,7 +29,10 @@ function TodoItem({ task, done, date }) {
               done ? styles.todo__checkbox__done : ""
             }`}
           >
-            <HiOutlineCheck className={styles.todo__checkbox__icon} />
+            <HiOutlineCheck
+              className={styles.todo__checkbox__icon}
+              onClick={toggleStatus}
+            />
           </div>
           <p
             className={`${styles.todo__task} ${done ? styles.todo__done : ""}`}
@@ -34,7 +44,7 @@ function TodoItem({ task, done, date }) {
             <span onClick={handleClick}>
               <FaPen className={styles.todo__edit} />
             </span>
-            <span>
+            <span onClick={() => deleteTodo(id)}>
               <FaTrashAlt className={styles.todo__delete} />
             </span>
           </div>

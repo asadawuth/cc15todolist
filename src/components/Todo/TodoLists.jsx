@@ -1,13 +1,13 @@
 import styles from "./TodoLists.module.scss";
 import TodoItem from "./TodoItem";
-import { useState } from "react";
-
+import { React } from "react";
 /*
 SCHHEMA
 todoObj : <{id:num,task:string,status:boolean,due)date:string}
 data = Array[] <{id:num,task:string,status:boolean,due)date:string}
 dataRender = Array[] <TodoItem task=... done= ... date= .../>
 */
+/*
 const data = [
   {
     id: 1,
@@ -28,10 +28,10 @@ const data = [
     due_date: "2023-04-30",
   },
 ];
-
-function TodoLists() {
+*/
+function TodoLists(props) {
   // CRUD = create Read Update Delete
-  const [allTodos, setAllTodos] = useState(data);
+  //const [allTodos, setAllTodos] = useState(data);
   // 1. const dataRender = data.map((todoObj) => (
   //   <TodoItem
   //     key={todoObj.id}
@@ -40,29 +40,32 @@ function TodoLists() {
   //     date={todoObj.due_date}
   //   />
   // ));
-  //  return <ul className={styles.todo__lists}>{dataRender}</ul>;
-  // 2.
-  // return (
-  //   <ul className={styles.todo__lists}>
-  //     {data.map((todoObj) => (
-  //       <TodoItem
-  //         key={todoObj.id}
-  //         task={todoObj.task}
-  //         done={todoObj.status}
-  //         date={todoObj.due_date}
-  //       />
-  //     ))}
-  //   </ul>
-  // );
-
-  // 3.
+  //return <ul className={styles.todo__lists}>{dataRender}</ul>;
+  //2;
   return (
     <ul className={styles.todo__lists}>
-      {data.map(({ id, task, status, due_date }) => (
-        <TodoItem key={id} task={task} done={status} date={due_date} />
+      {props.data.map((todoObj) => (
+        <TodoItem
+          key={todoObj.id}
+          id={todoObj.id}
+          task={todoObj.task}
+          done={todoObj.status}
+          date={todoObj.due_date}
+          deleteTodo={props.deleteTodo}
+          editTodo={props.editTodo}
+        />
       ))}
     </ul>
   );
+  //function TodoLists(props) ,props.data.map ฝั้งรับ
+  // 3.
+  // return (
+  //   <ul className={styles.todo__lists}>
+  //     {data.map(({ id, task, status, due_date }) => (
+  //       <TodoItem key={id} task={task} done={status} date={due_date} />
+  //     ))}
+  //   </ul>
+  // );
 }
 
 export default TodoLists;
