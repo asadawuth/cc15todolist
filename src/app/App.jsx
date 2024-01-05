@@ -60,9 +60,44 @@ function App() {
     // 3.
     setAllTodos((prev) => prev.filter((todo) => todo.id !== todoId));
   };
+  /*
   const editTodo = (todoId, newTodoObj) => {
-    console.log(todoId, newTodoObj);
+    //console.log(todoId, newTodoObj);
+    let foundedTodo = allTodos.find((todo) => todo.id === todoId);
+    //  let foundedTodo ไปหาของเดิมไปเป็นต้นฉบับก่อน
+    if (!foundedTodo) return;
+    const newTodo = Object.assign({}, foundedTodo, newTodoObj);
+    // merige foundedTodo ของเดิท  newTodoObj ของใหม่
+
+    let foundedIndex = allTodos.findIndex((todo) => todo.id === todoId);
+    if (foundedIndex === -1) return;
+
+    const newTodoLists = [...allTodos];
+    newTodoLists.splice(foundedIndex, 1, newTodo);
+    setAllTodos(newTodoLists);
+  }; // Todoเก่าทิ้ง แล้ว SetList เข้ามาใหม่
+  */
+
+  // 2. ถ้าตรง else เอาของใหม่มาเขียนทับ
+  /*
+  const editTodo = (todoId, newTodoObj) => {
+    const newTodoLists = allTodos.map(function (todo) {
+      if (todo.id !== todoId) return todo;
+      else return { ...todo, ...newTodoObj };
+    });
+    setAllTodos(newTodoLists);
   };
+  */
+
+  const editTodo = (todoId, updateTodoObj) => {
+    const newTodoLists = allTodos.reduce((acc, todo) => {
+      if (todo.id !== todoId) acc.push(todo);
+      else acc.push({ ...todo, ...updateTodoObj });
+      return acc;
+    }, []);
+    setAllTodos(newTodoLists);
+  };
+
   return (
     <div className="todo">
       <div className="todo__header">
@@ -74,6 +109,7 @@ function App() {
       <div className="todo__content">
         <main className="todo__container">
           <TodoHeader />
+          {/*  */}
           <TodoCreate addTodo={addTodo} />
           <TodoLists
             data={allTodos}

@@ -5,12 +5,19 @@ import { useState } from "react";
  props = {
   textSubmit : string
   setIsOpenForm : Fn
+  oldTodo:{id,task,status,due_date}
+  addTo:Fn
+  editTodo:Fn
  }
+ const [taskInput, setTask] = useState(props.oldTodo.task);
+ ถ้าไม่มีอาจจะ บัค
+ const [taskInput, setTask] = useState(props.oldTodo?.task);
+ ถ้าไม่มีจะ Undefined
 */
 
 function TodoForm(props) {
   const [isError, setisError] = useState(false);
-  const [taskInput, setTask] = useState("");
+  const [taskInput, setTask] = useState(props.oldTodo?.task || "");
   const handleChangeInput = (event) => {
     if (isError) setisError(false);
     setTask(event.target.value);
@@ -28,7 +35,11 @@ function TodoForm(props) {
       setisError(true);
       return;
     }
-    props.addTodo(taskInput);
+    if (props.addTodo) props.addTodo(taskInput);
+    else if (props.editTodo && props.oldTodo) {
+      props.editTodo(props.oldTodo.id, { task: taskInput });
+    }
+    //ไปที่ไอดีไหน Obj ที่แก้เป็น Id อะไร
     props.setIsOpenForm(false);
     //console.log("summit === create new Todo");
     // create NewTodo
